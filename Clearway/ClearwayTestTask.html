@@ -13,104 +13,105 @@
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f7fa;
   }
 
-  /* Контейнер */
+  /* Хеддер */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #62a6ff, #2e89ff);
+    padding: 16px 240px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-buttons button {
+    background-color: #fff;
+    color: #1a73e8;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .nav-buttons button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+  }
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px 80px;
   }
 
-  /* Логотип */
-  .logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1a73e8;
+  .main-image {
     text-align: center;
-    margin-bottom: 25px;
-    letter-spacing: 1.5px;
+    margin-bottom: 64px;
+    width: 100%;
   }
 
-  /* Заголовок */
-  h1 {
-    font-size: 2.75rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 35px;
-    color: #1a73e8;
-  }
-
-  /* Кнопка */
-  .cta {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-
-  .cta button {
-    background-color: #1a73e8;
-    color: #fff;
-    border: none;
-    padding: 16px 36px;
-    font-size: 1.25rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(26,115,232,0.3);
-  }
-
-  .cta button:hover {
-    background-color: #135ab6;
-    box-shadow: 0 6px 15px rgba(19,90,182,0.5);
-  }
-
-  /* Картинка */
-  .image-section {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .image-section img {
-    max-width: 100%;
-    height: auto;
+  .main-image img {
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.07);
     transition: transform 0.3s ease;
   }
 
-  .image-section img:hover {
-    transform: scale(1.03);
+  .slideshow {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  height: auto;
   }
 
-  /* Описание по кнопке */
-  .description {
-    max-width: 720px;
-    margin: 0 auto 40px;
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 18px rgba(26,115,232,0.15);
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #444;
-    display: none;
-    user-select: text;
+  .slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   }
 
-  /* Блок преимуществ */
-  .advantages-block {
-    max-width: 1000px;
-    margin: 0 auto;
+  .slideshow img.active {
+  opacity: 1;
+  position: relative; 
+  }
+
+  .advantages-title{
     display: flex;
     justify-content: center;
-    gap: 30px;
+    margin-bottom: 32px;
+  }
+
+  .advantages-block {
+    width: 100%;
+    margin: 0 auto 50px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
     flex-wrap: wrap;
-    padding: 0 10px;
+    line-height: normal;
   }
 
   .advantage {
@@ -129,57 +130,198 @@
   }
 
   .advantage h3 {
-    font-size: 1.5rem;
+    font-size: 20px;
     margin-bottom: 15px;
-    color: #1a73e8;
+    color: #2e89ff;
   }
 
   .advantage p {
-    font-size: 1.05rem;
+    font-size: 16px;
     color: #555;
     line-height: 1.5;
   }
 
-  /* Адаптивность */
-  @media (max-width: 900px) {
-    .advantages-block {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .advantage {
-      max-width: 360px;
-    }
+  .cta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
   }
 
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 2rem;
+  #toggleDescriptionBtn {
+    background-color: #2e89ff;
+    color: #fff;
+    border: none;
+    padding: 16px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  #toggleDescriptionBtn:hover {
+    background-color: #135ab6;
+    box-shadow: 0 4px 15px rgba(19, 90, 182, 0.25);
+  }
+
+  .description {
+    width: 100%;
+    margin: 0 auto 64px;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(26,115,232,0.15);
+    font-size: 18;
+    line-height: 1.7;
+    color: #444;
+    display: none;
+  }
+
+  .reviews-section {
+    background-color: #f9f9f9;
+    padding: 32px 0px;
+    text-align: center;
+  }
+
+  .reviews-section h2 {
+    margin-bottom: 32px;
+  }
+
+  .reviews-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .review {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+
+  .review:hover {
+    transform: translateY(-5px);
+  }
+
+  .review h3 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .review p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .author {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #62a6ff, #2e89ff);
+    padding: 20px 240px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .footer-contacts {
+    display: flex;
+    gap: 32px;
+  }
+
+  .footer-contacts a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+
+  .footer-contacts a:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+  }
+
+  /* Для мобильных устройств фиксация стилей */
+  @media(max-width: 1200px) {
+    .main-image img {
+    width: 85%;
+    }
+    header{
+      justify-content: space-between;
+    }
+    #intro-section{
+      width: 85%;
+    }
+    .advantages-block{
+      width: 85%;
+    }
+    .description{
+      width: 85%;
+    }
+    footer{
+      justify-content: space-between;
     }
 
-    .cta button {
-      padding: 14px 28px;
-      font-size: 1rem;
+  }
+  @media(max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .nav-buttons {
+      margin-top: 15px;
+    }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-contacts {
+      justify-content: center;
     }
   }
 </style>
 </head>
 <body>
+
+<header>
+  <div>
+    <img src="images/AiTechLogo.svg" class="logo"></img>
+  </div>
+  <div class="nav-buttons">
+    <button id="aboutBtn">О нас</button>
+    <button id="contactsBtn">Контакты</button>
+  </div>
+</header>
+
 <div class="container">
 
-  <!-- Логотип -->
-  <div class="logo">AiTech</div>
+  <div class="main-image">
+  <div class="slideshow">
+    <img src="images/image.jpg" alt="Интеграция ИИ и аналитика" class="slide" />
+    <img src="images/image1.jpg" class="slide" />
+    <img src="images/image2.jpg" alt="Рост бизнеса" class="slide" />
+  </div>
+</div>
 
-  <!-- Заголовок -->
-  <h1>Интеграция ИИ, аналитики и статистики<br>для роста вашего бизнеса</h1>
-
-  <!-- Кнопка -->
-  <div class="cta">
-    <button id="toggleDescriptionBtn">Узнать подробности</button>
+  <div class="advantages-title">
+  <h2>Интеграция ИИ, аналитики и статистики для роста вашего бизнеса</h2>
   </div>
 
-  <!-- Блок преимуществ (после кнопки) -->
-  <div class="advantages-block">
+  <section class="advantages-block">
     <div class="advantage">
       <h3>Искусственный интеллект под ключ</h3>
       <p>Помогаем внедрять современные ИИ‑решения, которые автоматизируют процессы и повышают эффективность.</p>
@@ -192,24 +334,73 @@
       <h3>Рост прибыли и узнаваемости</h3>
       <p>Оптимизируем бизнес-процессы и маркетинг, чтобы увеличить доход и укрепить бренд на рынке.</p>
     </div>
+  </section>
+
+  <div class="cta">
+    <button id="toggleDescriptionBtn">Узнать подробности</button>
   </div>
 
-  <!-- Изображение -->
-  <div class="image-section">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Интеграция ИИ и аналитика" />
-  </div>
-
-  <!-- Дополнительное описание (скрытое) -->
-  <div class="description" id="descriptionText">
+ <div class="description" id="descriptionText">
     <h2>Почему выбирают AiTech?</h2>
     <p>
       В AiTech мы связываем инновации и реальные потребности бизнеса. Наша команда экспертов интегрирует искусственный интеллект и продвинутую аналитику в ваши процессы, давая возможность масштабировать бизнес, оптимизировать расходы и создавать уникальный опыт для клиентов. Работая с нами, вы получаете партнёра, который помогает не просто идти в ногу со временем, а опережать конкурентов.
     </p>
   </div>
 
+<div class="reviews-section">
+  <h2>Отзывы наших клиентов</h2>
+  <div class="reviews-container">
+    <div class="review">
+      <h3>Компания АБВ</h3>
+      <p>"Работали с этой командой — результаты превзошли ожидания, очень профессионально и быстро."</p>
+      <div class="author">— Иван Иванов, директор</div>
+    </div>
+    <div class="review">
+      <h3>ООО Гамма</h3>
+      <p>"Отличная команда, внедрили аналитическую систему за короткие сроки. Рекомендуем!"</p>
+      <div class="author">— Мария Смирнова, менеджер</div>
+    </div>
+    <div class="review">
+      <h3>ЗАО Дельта</h3>
+      <p>"Спасибо за качественную поддержку и внимание к деталям. Наш бизнес вырос благодаря вам."</p>
+      <div class="author">— Сергей Петров, CEO</div>
+    </div>
+  </div>
 </div>
 
+</div>
+
+<footer id="footer">
+  <div>
+    <img src="images/AiTechLogo.svg" class="logo"></img>
+  </div>
+  <div class="footer-contacts">
+    <a href="https://t.me/Telegram" target="_blank">Telegram</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="mailto:info@aitech.com">Email</a>
+  </div>
+</footer>
+
 <script>
+
+  const slides = document.querySelectorAll('.slideshow img');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  showSlide(currentSlide);
+  setInterval(nextSlide, 99999999999);
+
   const btn = document.getElementById('toggleDescriptionBtn');
   const desc = document.getElementById('descriptionText');
 
