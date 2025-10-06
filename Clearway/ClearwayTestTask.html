@@ -5,294 +5,284 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AiTech — Интеграция ИИ и аналитики для вашего бизнеса</title>
 <style>
-  * 
-  {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f7fa;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: linear-gradient(135deg, #62a6ff, #2e89ff);
-    padding: 16px 240px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-
-  .logo {
-    width: 150px;
-  }
-
-  .nav-buttons {
-    display: flex;
-    gap: 32px;
-  }
-
-  .nav-buttons button {
-    background-color: #fff;
-    color: #1a73e8;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-
-  .nav-buttons button:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-2px);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
-
-  .main-image {
-    text-align: center;
-    margin-bottom: 64px;
-    width: 100%;
-  }
-
-  .main-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.07);
-    transition: transform 0.3s ease;
-  }
-
-  .slideshow {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  height: auto;
-  }
-
-  .slideshow img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  }
-
-  .slideshow img.active {
-  opacity: 1;
-  position: relative; 
-  }
-
-  .advantages-title{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 32px;
-  }
-
-  .advantages-block {
-    width: 100%;
-    margin: 0 auto 50px;
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    line-height: normal;
-  }
-
-  .advantage {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(26,115,232,0.1);
-    padding: 30px 25px;
-    flex: 1 1 280px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .advantage:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(26,115,232,0.25);
-  }
-
-  .advantage h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #2e89ff;
-  }
-
-  .advantage p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-  }
-
-  .cta {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 32px;
-  }
-
-  #toggleDescriptionBtn {
-    background-color: #2e89ff;
-    color: #fff;
-    border: none;
-    padding: 16px 36px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  #toggleDescriptionBtn:hover {
-    background-color: #135ab6;
-    box-shadow: 0 4px 15px rgba(19, 90, 182, 0.25);
-  }
-  
-  .description {
-    width: 100%;
-    margin: 0 auto 64px;
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(26,115,232,0.15);
-    font-size: 18px;
-    line-height: 1.7;
-    color: #444;
-    display: none;
-  }
-
-  .reviews-section {
-    background-color: #f9f9f9;
-    padding: 32px 0px;
-    text-align: center;
-  }
-
-  .reviews-section h2 {
-    margin-bottom: 32px;
-  }
-
-  .reviews-container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 32px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .review {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-  }
-
-  .review:hover {
-    transform: translateY(-5px);
-  }
-
-  .review h3 {
-    margin-top: 0;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .review p {
-    font-size: 16px;
-    color: #333;
-  }
-
-  .author {
-    margin-top: 15px;
-    font-style: italic;
-    font-size: 14px;
-    color: #666;
-  }
-
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: linear-gradient(135deg, #62a6ff, #2e89ff);
-    padding: 20px 240px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-
-  .footer-contacts {
-    display: flex;
-    gap: 32px;
-  }
-
-  .footer-contacts a {
-    color: #fff;
-    font-size: 20px;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
-  }
-
-  .footer-contacts a:hover {
-    color: #ffd700;
-    transform: scale(1.1);
-  }
-
-  /* Для мобильных устройств фиксация стилей */
-  @media(max-width: 1200px) {
-    .main-image img {
-    width: 85%;
-    }
-    header{
-      justify-content: space-between;
-    }
-    #intro-section{
-      width: 85%;
-    }
-    .advantages-block{
-      width: 85%;
-    }
-    .description{
-      width: 85%;
-    }
-    footer{
-      justify-content: space-between;
+    * 
+    {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-  }
-  @media(max-width: 768px) {
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f7fa;
+    }
+
     header {
-      flex-direction: column;
+      display: flex;
       align-items: center;
-      text-align: center;
+      justify-content: space-around;
+      background: linear-gradient(135deg, #62a6ff, #2e89ff);
+      padding: 16px 240px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      width: 150px;
     }
 
     .nav-buttons {
-      margin-top: 15px;
+      display: flex;
+      gap: 32px;
     }
 
-    footer {
-      flex-direction: column;
+    .nav-buttons button {
+      background-color: #fff;
+      color: #1a73e8;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #e0e0e0;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .main-image {
+      text-align: center;
+      margin-bottom: 64px;
+      width: 100%;
+    }
+
+    .main-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease;
+    }
+
+    .slideshow {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    height: auto;
+    }
+
+    .slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+    opacity: 1;
+    position: relative; 
+    }
+
+    .advantages-title{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .advantages-block {
+      width: 100%;
+      margin: 0 auto 50px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      line-height: normal;
+    }
+
+    .advantage {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(26,115,232,0.1);
+      padding: 30px 25px;
+      flex: 1 1 280px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .advantage:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(26,115,232,0.25);
+    }
+
+    .advantage h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #2e89ff;
+    }
+
+    .advantage p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .cta {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    #toggleDescriptionBtn {
+      background-color: #2e89ff;
+      color: #fff;
+      border: none;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #toggleDescriptionBtn:hover {
+      background-color: #135ab6;
+      box-shadow: 0 4px 15px rgba(19, 90, 182, 0.25);
+    }
+    
+    .description {
+      width: 100%;
+      margin: 0 auto 64px;
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(26,115,232,0.15);
+      font-size: 18px;
+      line-height: 1.7;
+      color: #444;
+      display: none;
+    }
+
+    .reviews-section {
+      background-color: #f9f9f9;
+      padding: 32px 0px;
       text-align: center;
     }
 
-    .footer-contacts {
-      justify-content: center;
+    .reviews-section h2 {
+      margin-bottom: 32px;
     }
-  }
-</style>
+
+    .reviews-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 32px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .review {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .review:hover {
+      transform: translateY(-5px);
+    }
+
+    .review h3 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .review p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .author {
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: linear-gradient(135deg, #62a6ff, #2e89ff);
+      padding: 20px 240px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .footer-contacts {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-contacts a {
+      color: #fff;
+      font-size: 20px;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .footer-contacts a:hover {
+      color: #ffd700;
+      transform: scale(1.1);
+    }
+    
+    @media(max-width: 1200px) {
+      .container {
+        width: 85%;
+      }
+
+    }
+    @media (max-width: 1000px) {
+      .advantages-title{
+        text-align: center;
+      }
+    }
+    @media(max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .nav-buttons {
+        margin-top: 15px;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-contacts {
+        justify-content: center;
+      }
+      .reviews-container{
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
